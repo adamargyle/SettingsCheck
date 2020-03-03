@@ -1,0 +1,17 @@
+#!/bin/bash
+# 2018-07-11
+# Script to check security settings and name
+
+# check if firmware password is active
+# firmwarepasswd -check
+
+# check to see if filevault is active
+echo "FileVault Enabled:" fdesetup isactive
+
+# check admin users
+echo "Admin Users:" dscl . -read /Groups/admin GroupMembership
+
+#check computer name
+echo "Computer Name:" scutil --get ComputerName 
+echo "Local Host Name:" scutil --get LocalHostName 
+echo "Host Name:" scutil --get HostName 
